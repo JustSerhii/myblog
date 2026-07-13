@@ -1,6 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import BlogPage from "../BlogPage";
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
-export const Route = createFileRoute("/")({
-  component: BlogPage,
-});
+export const Route = createFileRoute('/')({
+  loader: () => {
+    throw redirect({
+      to: '/reviews/'
+    })
+  }
+})

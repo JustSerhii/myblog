@@ -6,8 +6,8 @@ import { routeTree } from './routeTree.gen.ts';
 
 const router = createRouter({
   routeTree,
-  defaultPreload: "intent",
   scrollRestoration: true,
+  getScrollRestorationKey: (location) => location.pathname,
 });
 
 
