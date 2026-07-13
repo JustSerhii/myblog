@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DUAcabCT.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`About Page`})}function r(){return(0,t.jsx)(`div`,{className:`p-2`,children:(0,t.jsx)(n,{})})}export{r as component};

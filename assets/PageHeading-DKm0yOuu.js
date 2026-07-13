@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DUAcabCT.js";var t=e();function n({children:e}){return(0,t.jsx)(`h1`,{className:`text-4xl font-bold text-center`,children:e})}export{n as t};
