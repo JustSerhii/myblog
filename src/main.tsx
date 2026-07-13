@@ -6,6 +6,7 @@ import { routeTree } from './routeTree.gen.ts';
 
 const router = createRouter({
   routeTree,
+  basepath: "/myblog",
   scrollRestoration: true,
   getScrollRestorationKey: (location) => location.pathname,
 });
