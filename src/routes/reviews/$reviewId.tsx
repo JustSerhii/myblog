@@ -4,6 +4,8 @@ import PostDetails from "../../components/PostDetails";
 
 
 export const Route = createFileRoute("/reviews/$reviewId")({
+  staleTime: 1000 * 60 * 5,
+  gcTime: 1000 * 60 * 10,
   component: ReviewPage,
 });
 
