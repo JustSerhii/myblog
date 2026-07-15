@@ -11,7 +11,23 @@ export default function TagsPage() {
           <li key={t} className="w-max">
             <Tag
               tag={t}
-              className="text-md cursor-pointer transition-all motion-reduce:transition-none duration-300 bg-left-bottom bg-gradient-to-br [background-size:0px_3px] hover:[background-size:100%_2.5px] bg-no-repeat from-gray-900 to-gray-500 w-fit"
+              className="
+    text-md
+    cursor-pointer
+    transition-all
+    motion-reduce:transition-none
+    duration-300
+    bg-left-bottom
+    bg-gradient-to-r
+    [background-size:0px_2.5px]
+    hover:[background-size:100%_2.5px]
+    bg-no-repeat
+    from-amber-600
+    to-amber-500
+    dark:from-amber-400
+    dark:to-amber-300
+    w-fit
+  "
             />
           </li>
         ))}

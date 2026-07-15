@@ -24,12 +24,19 @@ export default function PostCard({ blogPost }: PostCardProps) {
       <Link
         to="/reviews/$reviewId"
         params={{ reviewId: blogPost.id.toString() }}
-        className="line-clamp-2 w-[80%] text-lg font-medium transition-colors hover:text-amber-600"
+        className="
+          line-clamp-2 w-[80%] text-lg font-medium 
+          text-gray-900 dark:text-gray-100 
+          transition-colors duration-200 
+          hover:text-amber-600 dark:hover:text-amber-400
+        "
       >
         {blogPost.title}
       </Link>
 
-      <div className="text-sm text-gray-600">{blogPost.createdAt}</div>
+      <div className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-200">
+        {blogPost.createdAt}
+      </div>
 
       <div className="mt-2 flex flex-wrap gap-2">
         {blogPost.tags?.map((tag) => (
