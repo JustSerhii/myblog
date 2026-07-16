@@ -74,16 +74,24 @@ export default function Header() {
     });
   };
 
+  const handleSearchSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const input = form.elements.namedItem("search") as HTMLInputElement;
+    if (input) {
+      input.blur(); 
+    }
+  };
+
   return (
     <header className="w-full justify-center pt-8 text-xl">
-      <div className="flex flex-col w-[65%] min-w-[340px] mx-auto gap-3">
-        {/* Mobile Menu Overlay */}
+      <div className="flex flex-col w-full max-w-5xl px-4 sm:px-6 mx-auto gap-3">
         <div
           className={`
             fixed top-0 right-0 h-full w-full max-w-[450px] bg-[#f7f6f2]
-dark:bg-gray-900
-transition-[transform,background-color,color]
-duration-300 z-50
+            dark:bg-gray-900
+            transition-[transform,background-color,color]
+            duration-300 z-50
             flex flex-col items-center justify-center gap-8 text-3xl
             transition-transform duration-300 sm:hidden
             ${isOpen ? "translate-x-0" : "translate-x-full"}
@@ -162,32 +170,32 @@ duration-300 z-50
           >
             Github
           </a>
-
-          {/* Theme Toggle in Mobile Menu */}
         </div>
 
-        {/* Main Header Content */}
         <div className="flex w-full justify-between items-center gap-6">
-          <div className="flex items-center gap-3 max-md:justify-evenly max-sm:justify-start max-sm:flex-1">
+          <form
+            onSubmit={handleSearchSubmit}
+            className="flex items-center gap-3 max-md:justify-evenly max-sm:justify-start max-sm:flex-1"
+          >
             <h1 className="max-sm:hidden font-medium text-3xl w-max text-nowrap hover:cursor-context-menu">
               My blog
             </h1>
             <input
+              name="search"
               onChange={handleInputChange}
               type="text"
               value={inputValue}
               placeholder="Search..."
               className="bg-white
-        text-black
-        placeholder:text-gray-500
-
-        dark:bg-neutral-800
-        dark:text-white
-        dark:placeholder:text-gray-400 outline-none pl-4 pr-1 w-30 md:w-40 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-all focus:translate-x-[1px] focus:translate-y-[1px] max-sm:focus:w-full"
+                text-black
+                placeholder:text-gray-500
+                dark:bg-neutral-800
+                dark:text-white
+                dark:placeholder:text-gray-400 
+                outline-none pl-4 pr-1 w-30 md:w-40 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] transition-all focus:translate-x-[1px] focus:translate-y-[1px] max-sm:focus:w-full"
             />
-          </div>
+          </form>
 
-          {/* Theme Toggle Button (Desktop and Mobile) */}
           <button
             onClick={toggleTheme}
             className="flex items-center gap-2 text-lg hover:cursor-pointer transition-colors hover:text-amber-600 dark:hover:text-amber-400"
@@ -233,28 +241,17 @@ duration-300 z-50
           </button>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden sm:flex w-full justify-between items-center dark:text-gray-100">
           <div className="flex justify-center gap-4">
             <Link
               to="/reviews"
-              className="hover:text-black dark:hover:text-white transition-colors transition-colors
-text-gray-700
-hover:text-black
-
-dark:text-gray-200
-dark:hover:text-amber-400"
+              className="hover:text-black dark:hover:text-white transition-colors text-gray-700 hover:text-black dark:text-gray-200 dark:hover:text-amber-400"
             >
               Reviews
             </Link>
             <Link
               to="/tags"
-              className="hover:text-black dark:hover:text-white transition-colors transition-colors
-text-gray-700
-hover:text-black
-
-dark:text-gray-200
-dark:hover:text-amber-400"
+              className="hover:text-black dark:hover:text-white transition-colors text-gray-700 hover:text-black dark:text-gray-200 dark:hover:text-amber-400"
             >
               Tags
             </Link>
@@ -288,12 +285,7 @@ dark:hover:text-amber-400"
           <div className="flex justify-center gap-4">
             <Link
               to="/about"
-              className="hover:text-black dark:hover:text-white transition-colors transition-colors
-text-gray-700
-hover:text-black
-
-dark:text-gray-200
-dark:hover:text-amber-400"
+              className="hover:text-black dark:hover:text-white transition-colors text-gray-700 hover:text-black dark:text-gray-200 dark:hover:text-amber-400"
             >
               About
             </Link>
@@ -301,12 +293,7 @@ dark:hover:text-amber-400"
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/JustSerhii"
-              className="hover:text-black dark:hover:text-white transition-colors transition-colors
-text-gray-700
-hover:text-black
-
-dark:text-gray-200
-dark:hover:text-amber-400"
+              className="hover:text-black dark:hover:text-white transition-colors text-gray-700 hover:text-black dark:text-gray-200 dark:hover:text-amber-400"
             >
               Github
             </a>

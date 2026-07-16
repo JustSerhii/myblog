@@ -11,20 +11,18 @@ export default function PageWrapper({ children }: PageWrapperProps) {
   const [searchInput, setSearchInput] = useState("");
 
   return (
-    <>
-      <InputContext
-        value={{
-          searchInputctx: searchInput,
-          setSearchInputCtx: setSearchInput,
-        }}
-      >
-        <div className="flex flex-col">
-          <Header />
-          <div className="grid gap-2 w-[65%] min-w-[320px] mx-auto">
-            <main className="pt-8 pb-8">{children}</main>
-          </div>
+    <InputContext
+      value={{
+        searchInputctx: searchInput,
+        setSearchInputCtx: setSearchInput,
+      }}
+    >
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <div className="w-full max-w-5xl px-4 sm:px-6 mx-auto flex-1">
+          <main className="pt-8 pb-8">{children}</main>
         </div>
-      </InputContext>
-    </>
+      </div>
+    </InputContext>
   );
 }
